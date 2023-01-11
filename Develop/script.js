@@ -9,8 +9,8 @@ $(document).ready ($(function () {
 
   $(".saveBtn").click(function(){
       console.log("click");
-        var hour = $(this).parent("id").attr;
-        var hourlyTask = $(".description").val();
+        var hour = $(this).parent().attr("id");
+        var hourlyTask = $(this).siblings(".description").val();
         localStorage.setItem(hour,hourlyTask);
 
   })
