@@ -7,27 +7,30 @@ $('#currentDay').text(today.format('MMM D, YYYY'));
 // in the html.
 $(document).ready ($(function () {
 
+  var currentHour = dayjs().hour();
+  console.log(currentHour);
+
   $(".saveBtn").click(function(){
-      console.log("click");
-        var hour = $(this).parent().attr("id");
-        var hourlyTask = $(this).siblings(".description").val();
-        localStorage.setItem(hour,hourlyTask);
+      var hour = $(this).parent().attr("id");
+      var hourlyTask = $(this).siblings(".description").val();
+      localStorage.setItem(hour,hourlyTask);
 
   })
 
-  $("time-block").each(function(){
-      if (hour === dayjs().hour()){
+  $(".time-block").each(function(){
+      if (currentHour === dayjs().hour()){
         $(this).addClass("present");
         $(this).removeClass("past");
         $(this).removeClass("future");
       
       }
-      if (hour < dayjs().hour()){
+      if (currentHour < dayjs().hour()){
         $(this).addClass("past");
         $(this).removeClass("present");
         $(this).removeClass("future");
+      
       }
-      if (hour > dayjs().hour()){
+      if (currentHour > dayjs().hour()){
         $(this).addClass("future");
         $(this).removeClass("past");
         $(this).removeClass("present");
