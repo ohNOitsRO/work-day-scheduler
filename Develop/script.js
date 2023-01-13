@@ -1,4 +1,3 @@
-
 var today = dayjs();
 $('#currentDay').text(today.format('MMM D, YYYY'));
 
@@ -14,8 +13,12 @@ $(document).ready ($(function () {
       var hour = $(this).parent().attr("id");
       var hourlyTask = $(this).siblings(".description").val();
       localStorage.setItem(hour,hourlyTask);
+      console.log(hourlyTask);
+      console.log(hour);
 
   })
+
+
 
   $(".time-block").each(function(){
       if (currentHour === dayjs().hour()){
@@ -36,6 +39,8 @@ $(document).ready ($(function () {
         $(this).removeClass("present");
 
       }
+
+      
 
 
   })
