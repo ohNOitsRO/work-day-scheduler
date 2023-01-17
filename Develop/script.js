@@ -9,6 +9,7 @@ $(document).ready ($(function () {
   var currentHour = dayjs().hour();
   console.log(currentHour);
 
+// Function to save time block and task user inputs
   $(".saveBtn").click(function(){
       var hour = $(this).parent().attr("id");
       var hourlyTask = $(this).siblings(".description").val();
@@ -18,9 +19,14 @@ $(document).ready ($(function () {
 
   })
 
+  
 
 
+// Function to check current time of day and change text block styles based on time
   $(".time-block").each(function(){
+      var currentHour = parseInt($(this).attr("id").split("hour-")[1]);
+      console.log(currentHour);
+
       if (currentHour === dayjs().hour()){
         $(this).addClass("present");
         $(this).removeClass("past");
